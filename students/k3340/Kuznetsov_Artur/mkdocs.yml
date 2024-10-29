@@ -7,6 +7,8 @@ nav:
       - task3: Lr1/task3.md
       - task4: Lr1/task4.md
       - task5: Lr1/task5.md
+  - Lr2:
+      - hotel: Lr2/hotel.md
 
 theme:
   name: material
