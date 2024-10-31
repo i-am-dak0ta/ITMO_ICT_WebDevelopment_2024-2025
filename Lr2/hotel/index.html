@@ -678,7 +678,7 @@
 <ul>
 <li>Пользователи могут зарегистрироваться через форму, войти в систему и получить доступ к функциям бронирования и отзывов.</li>
 </ul>
-<p><img alt="Регистрация" src="/images/Lr2/registration.png" />  </p>
+<p><img alt="Регистрация" src="../../images/Lr2/registration.png" />  </p>
 <pre><code class="language-python"># Регистрация пользователя
 class RegisterView(CreateView):
     form_class = UserCreationForm
@@ -690,9 +690,9 @@ class RegisterView(CreateView):
 <li>На странице отеля отображаются номера с ценой, вместимостью и удобствами.</li>
 <li>Пользователи могут бронировать номера и управлять своими бронированиями (редактировать и удалять).</li>
 </ul>
-<p><img alt="Номера в отеле для пользователя" src="/images/Lr2/hotels.png" /></p>
-<p><img alt="Номера в отеле для пользователя" src="/images/Lr2/rooms.png" /></p>
-<p><img alt="Номера в отеле для пользователя" src="/images/Lr2/bookings.png" /></p>
+<p><img alt="Номера в отеле для пользователя" src="../../images/Lr2/hotels.png" /></p>
+<p><img alt="Номера в отеле для пользователя" src="../../images/Lr2/rooms.png" /></p>
+<p><img alt="Номера в отеле для пользователя" src="../../images/Lr2/bookings.png" /></p>
 <pre><code class="language-python"># Просмотр номеров отеля
 def get_room_list(request, hotel_id):
     hotel = get_object_or_404(Hotel, id=hotel_id)
@@ -753,8 +753,8 @@ def create_reservation(request, room_id):
 <ul>
 <li>После проживания пользователь может оставить отзыв с оценкой (1-10) и текстом комментария.</li>
 </ul>
-<p><img alt="Добавить отзыв" src="/images/Lr2/create_review.png" /></p>
-<p><img alt="Отзывы к номерам" src="/images/Lr2/reviews.png" /></p>
+<p><img alt="Добавить отзыв" src="../../images/Lr2/create_review.png" /></p>
+<p><img alt="Отзывы к номерам" src="../../images/Lr2/reviews.png" /></p>
 <pre><code class="language-python"># Оставление отзыва
 @login_required(login_url='/login/')
 def create_review(request, reservation_id):
@@ -790,7 +790,7 @@ def get_room_reviews(request, room_id):
 <ul>
 <li>В таблице, видимой только администраторам, отображаются постояльцы отеля за последний месяц с датами заезда и отъезда.</li>
 </ul>
-<p><img alt="Номера в отеле для админа" src="/images/Lr2/rooms_admin.png" /></p>
+<p><img alt="Номера в отеле для админа" src="../../images/Lr2/rooms_admin.png" /></p>
 <hr />
 <h2 id="_3">Используемые модели</h2>
 <ul>
