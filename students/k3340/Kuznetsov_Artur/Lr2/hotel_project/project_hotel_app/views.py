@@ -31,16 +31,22 @@ def get_room_list(request, hotel_id):
     for room in rooms:
         room.can_leave_review = False
         if user:
-            reservations = Reservation.objects.filter(
-                user=user,
-                room=room,
-                start_date__lte=today
-            )
-            if reservations.exists():
-                reservations_without_review = reservations.exclude(review__isnull=False)
-                if reservations_without_review.exists():
-                    room.can_leave_review = True
-                    room.reservation_id_for_review = reservations_without_review.first().id
+            has_review = Review.objects.filter(
+                reservation__user=user,
+                reservation__room=room
+            ).exists()
+
+            if not has_review:
+                reservations = Reservation.objects.filter(
+                    user=user,
+                    room=room,
+                    start_date__lte=today
+                )
+                if reservations.exists():
+                    reservations_without_review = reservations.exclude(review__isnull=False)
+                    if reservations_without_review.exists():
+                        room.can_leave_review = True
+                        room.reservation_id_for_review = reservations_without_review.first().id
 
     context = {'hotel': hotel, 'rooms': rooms}
 
