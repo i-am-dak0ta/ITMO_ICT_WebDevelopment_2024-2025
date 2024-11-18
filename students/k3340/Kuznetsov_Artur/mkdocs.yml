@@ -10,8 +10,8 @@ nav:
   - Lr2:
       - hotel: Lr2/hotel.md
   - Lr3:
-      -prac3-1: Lr3/prac3-1.md
-      -prac3-2: Lr3/prac3-2.md
+      - prac3-1: Lr3/prac3-1.md
+      - prac3-2: Lr3/prac3-2.md
 
 theme:
   name: material
