@@ -782,13 +782,13 @@
 <h1 id="no31">Практическая работа №3.1</h1>
 <h2 id="1"><strong>Практическое задание 1</strong></h2>
 <h3 id="_1">Текст задания</h3>
-<p>Воспользуйтесь проектом из практики 2.1:
-<img alt="Номера в отеле для пользователя" src="../../images/Lr3/prac-3.1/task1_datamodel.png" />
-Напишите запрос на создание 6-7 новых автовладельцев и 5-6 автомобилей, каждому автовладельцу назначьте удостоверение и от 1 до 3 автомобилей. Задание можете выполнить либо в интерактивном режиме интерпретатора, либо в отдельном python-файле. Результатом должны стать запросы и отображение созданных объектов.</p>
+<p>Воспользуйтесь проектом из практики 2.1:</p>
+<p><img alt="Номера в отеле для пользователя" src="../../images/Lr3/prac-3.1/task1_datamodel.png" /></p>
+<p>Напишите запрос на создание 6-7 новых автовладельцев и 5-6 автомобилей, каждому автовладельцу назначьте удостоверение и от 1 до 3 автомобилей. Задание можете выполнить либо в интерактивном режиме интерпретатора, либо в отдельном python-файле. Результатом должны стать запросы и отображение созданных объектов.</p>
 <p><em>Если вы добавляете автомобили владельцу через метод .add(), не забудьте заполнить также ассоциативную сущность “владение”</em></p>
 <h3 id="_2">Выполненное задание</h3>
-<p><img alt="Интерпретатор" src="../../images/Lr3/prac-3.1/task1_interpreter.png" />
-Создание 6 автовладельцев</p>
+<p><img alt="Интерпретатор" src="../../images/Lr3/prac-3.1/task1_interpreter.png" /></p>
+<p>Создание 6 автовладельцев</p>
 <pre><code class="language-python">owner1 = Owner.objects.create(username=&quot;ivan_ivanov&quot;, first_name=&quot;Иван&quot;, last_name=&quot;Иванов&quot;, birth_date=&quot;1999-01-11&quot;)
 owner2 = Owner.objects.create(username=&quot;petr_petrov&quot;, first_name=&quot;Пётр&quot;, last_name=&quot;Петров&quot;, birth_date=&quot;1998-02-22&quot;)
 owner3 = Owner.objects.create(username=&quot;sergey_sergeev&quot;, first_name=&quot;Сергей&quot;, last_name=&quot;Сергеев&quot;, birth_date=&quot;1997-03-10&quot;)
@@ -862,22 +862,22 @@ class Ownership(models.Model):
 <p>Все машины марки “Toyota”</p>
 <pre><code class="language-python">print(Car.objects.filter(brand=&quot;Toyota&quot;))
 </code></pre>
-<p><img alt="Все машины марки “Toyota”" src="../../images/Lr3/prac-3.1/task2_cars_toyota_list.png" />
-Все водители с именем “Пётр”</p>
+<p><img alt="Все машины марки “Toyota”" src="../../images/Lr3/prac-3.1/task2_cars_toyota_list.png" /></p>
+<p>Все водители с именем “Пётр”</p>
 <pre><code class="language-python">print(Owner.objects.filter(first_name=&quot;Пётр&quot;))
 </code></pre>
-<p><img alt="Все водители с именем “Пётр”" src="../../images/Lr3/prac-3.1/task2_drivers_named_petr.png" />
-ID случайного владельца и удостоверение по этому ID</p>
+<p><img alt="Все водители с именем “Пётр”" src="../../images/Lr3/prac-3.1/task2_drivers_named_petr.png" /></p>
+<p>ID случайного владельца и удостоверение по этому ID</p>
 <pre><code class="language-python">random_owner_id = Owner.objects.order_by('?').first().id
 print(random_owner_id)
 print(DriverLicense.objects.get(owner_id=random_owner_id))
 </code></pre>
-<p><img alt="ID случайного владельца и Удостоверение по этому ID" src="../../images/Lr3/prac-3.1/task2_owner_license_details.png" />
-Все владельцы красных машин</p>
+<p><img alt="ID случайного владельца и Удостоверение по этому ID" src="../../images/Lr3/prac-3.1/task2_owner_license_details.png" /></p>
+<p>Все владельцы красных машин</p>
 <pre><code class="language-python">print(Owner.objects.filter(cars__color=&quot;Red&quot;))
 </code></pre>
-<p><img alt="Все владельцы красных машин" src="../../images/Lr3/prac-3.1/task2_owners_red_cars.png" />
-Все владельцы, чей год владения машиной начинается с 2019</p>
+<p><img alt="Все владельцы красных машин" src="../../images/Lr3/prac-3.1/task2_owners_red_cars.png" /></p>
+<p>Все владельцы, чей год владения машиной начинается с 2019</p>
 <pre><code class="language-python">print(Owner.objects.filter(ownerships__date_start__year=2019).distinct())
 </code></pre>
 <p><img alt="Все владельцы, чей год владения машиной начинается с 2019" src="../../images/Lr3/prac-3.1/task2_owners_cars_from_2019.png" /></p>
@@ -893,24 +893,24 @@ print(DriverLicense.objects.get(owner_id=random_owner_id))
 <p>Даты выдачи самого старшего водительского удостоверения</p>
 <pre><code class="language-python">print(DriverLicense.objects.aggregate(oldest_date=Min(&quot;issue_date&quot;)))
 </code></pre>
-<p><img alt="Даты выдачи самого старшего водительского удостоверения" src="../../images/Lr3/prac-3.1/task3_oldest_license_date.png" />
-Самая поздняя дату владения машиной, имеющую какую-то из существующих моделей в базе</p>
+<p><img alt="Даты выдачи самого старшего водительского удостоверения" src="../../images/Lr3/prac-3.1/task3_oldest_license_date.png" /></p>
+<p>Самая поздняя дату владения машиной, имеющую какую-то из существующих моделей в базе</p>
 <pre><code class="language-python">print(Ownership.objects.aggregate(latest_date=Max(&quot;date_start&quot;)))
 </code></pre>
-<p><img alt="Самая поздняя дату владения машиной, имеющую какую-то из существующих моделей в базе" src="../../images/Lr3/prac-3.1/task3_latest_ownership_date.png" />
-Количество машин для каждого водителя</p>
+<p><img alt="Самая поздняя дату владения машиной, имеющую какую-то из существующих моделей в базе" src="../../images/Lr3/prac-3.1/task3_latest_ownership_date.png" /></p>
+<p>Количество машин для каждого водителя</p>
 <pre><code class="language-python">cars_per_driver = Owner.objects.annotate(car_count=Count(&quot;cars&quot;))
 for driver in cars_per_driver:
     print(f&quot;Driver: {driver.username}, Car Count: {driver.car_count}&quot;)
 </code></pre>
-<p><img alt="Количество машин для каждого водителя" src="../../images/Lr3/prac-3.1/task3_cars_per_driver.png" />
-Количество машин каждой марки</p>
+<p><img alt="Количество машин для каждого водителя" src="../../images/Lr3/prac-3.1/task3_cars_per_driver.png" /></p>
+<p>Количество машин каждой марки</p>
 <pre><code class="language-python">car_count_by_brand = Car.objects.values(&quot;brand&quot;).annotate(count=Count(&quot;id&quot;))
 for entry in car_count_by_brand:
     print(f&quot;Brand: {entry['brand']}, Count: {entry['count']}&quot;)
 </code></pre>
-<p><img alt="Количество машин каждой марки" src="../../images/Lr3/prac-3.1/task3_car_count_by_brand.png" />
-Сортировка всех автовладельцев по дате выдачи удостоверения</p>
+<p><img alt="Количество машин каждой марки" src="../../images/Lr3/prac-3.1/task3_car_count_by_brand.png" /></p>
+<p>Сортировка всех автовладельцев по дате выдачи удостоверения</p>
 <pre><code class="language-python">owners_sorted_by_license = DriverLicense.objects.order_by(&quot;issue_date&quot;).distinct()
 for license in owners_sorted_by_license:
     print(f&quot;Owner: {license.owner.username}, Issue Date: {license.issue_date}&quot;)

@@ -716,15 +716,15 @@
 <h3 id="_1">Текст задания</h3>
 <p>Реализовать ендпоинты для добавления и просмотра скилов методом, описанным в пункте выше.</p>
 <h3 id="_2">Выполненное задание</h3>
-<p>Добавление сериализатора для модели <code>Skill</code>
-serializers.py:</p>
+<p>Добавление сериализатора для модели <code>Skill</code></p>
+<p>serializers.py:</p>
 <pre><code class="language-python">class SkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = Skill
         fields = &quot;__all__&quot;
 </code></pre>
-<p>Реализация представлений для просмотра и добавления навыков
-views.py:</p>
+<p>Реализация представлений для просмотра и добавления навыков</p>
+<p>views.py:</p>
 <pre><code class="language-python">class SkillListView(APIView):  
 
     def get(self, request):  
@@ -744,27 +744,29 @@ class SkillCreateView(APIView):
 
         return Response({&quot;Success&quot;: &quot;Skill '{}' created successfully.&quot;.format(skill_saved.title)})
 </code></pre>
-<p>Настройка маршрутов для эндпоинтов
-urls.py:</p>
+<p>Настройка маршрутов для эндпоинтов</p>
+<p>urls.py:</p>
 <pre><code class="language-python">urlpatterns = [   
     ... 
     path('skills/', SkillListView.as_view()),  
     path('skills/create/', SkillCreateView.as_view()),  
 ]
 </code></pre>
-<p><img alt="GET-запрос для просмотра всех навыков" src="../../images/Lr3/prac-3.2/task1_get_request.png" />
-<img alt="POST-запрос для добавления нового навыка" src="../../images/Lr3/prac-3.2/task1_post_request.png" /></p>
+<p><img alt="GET-запрос для просмотра всех навыков" src="../../images/Lr3/prac-3.2/task1_get_request.png" /></p>
+<p><img alt="POST-запрос для добавления нового навыка" src="../../images/Lr3/prac-3.2/task1_post_request.png" /></p>
 <h2 id="2"><strong>Практическое задание 2</strong></h2>
 <h3 id="_3">Текст задания</h3>
-<p>Реализовать ендпоинты:
-- Вывод полной информации о всех войнах и их профессиях (в одном запросе).
-- Вывод полной информации о всех войнах и их скилах (в одном запросе).
-- Вывод полной информации о войне (по id), его профессиях и скилах.
-- Удаление война по id.
-- Редактирование информации о войне.</p>
+<p>Реализовать ендпоинты:</p>
+<ul>
+<li>Вывод полной информации о всех войнах и их профессиях (в одном запросе).</li>
+<li>Вывод полной информации о всех войнах и их скилах (в одном запросе).</li>
+<li>Вывод полной информации о войне (по id), его профессиях и скилах.</li>
+<li>Удаление война по id.</li>
+<li>Редактирование информации о войне.</li>
+</ul>
 <h3 id="_4">Выполненное задание</h3>
-<p>Вывод полной информации о всех войнах и их профессиях (в одном запросе).
-views.py:</p>
+<p>Вывод полной информации о всех войнах и их профессиях (в одном запросе).</p>
+<p>views.py:</p>
 <pre><code class="language-python">class WarriorWithProfessionListView(generics.ListAPIView):  
     serializer_class = WarriorWithProfessionSerializer  
     queryset = Warrior.objects.all()
@@ -784,9 +786,9 @@ views.py:</p>
     path('warriors/with_professions/', WarriorWithProfessionListView.as_view()),
 ]
 </code></pre>
-<p><img alt="Вывод полной информации о всех войнах и их профессиях (в одном запросе)." src="../../images/Lr3/prac-3.2/task2_all_warriors_with_professions.png" />
-Вывод полной информации о всех войнах и их скилах (в одном запросе).
-views.py:</p>
+<p><img alt="Вывод полной информации о всех войнах и их профессиях (в одном запросе)." src="../../images/Lr3/prac-3.2/task2_all_warriors_with_professions.png" /></p>
+<p>Вывод полной информации о всех войнах и их скилах (в одном запросе).</p>
+<p>views.py:</p>
 <pre><code class="language-python">class WarriorWithSkillsListView(generics.ListAPIView):  
     serializer_class = WarriorWithSkillsSerializer  
     queryset = Warrior.objects.all()
@@ -806,9 +808,9 @@ views.py:</p>
     path('warriors/with_skills/', WarriorWithSkillsListView.as_view()),
 ]
 </code></pre>
-<p><img alt="Вывод полной информации о всех войнах и их скилах (в одном запросе)." src="../../images/Lr3/prac-3.2/task2_all_warriors_with_skills.png" />
-Вывод полной информации о войне (по id), его профессиях и скилах.
-views.py:</p>
+<p><img alt="Вывод полной информации о всех войнах и их скилах (в одном запросе)." src="../../images/Lr3/prac-3.2/task2_all_warriors_with_skills.png" /></p>
+<p>Вывод полной информации о войне (по id), его профессиях и скилах.</p>
+<p>views.py:</p>
 <pre><code class="language-python">class WarriorDetailView(generics.RetrieveAPIView):  
     serializer_class = WarriorNestedSerializer  
     queryset = Warrior.objects.all()
@@ -819,9 +821,9 @@ views.py:</p>
     path('warriors/&lt;int:pk&gt;/', WarriorDetailView.as_view()),
 ]
 </code></pre>
-<p><img alt="Вывод полной информации о войне (по id), его профессиях и скилах." src="../../images/Lr3/prac-3.2/task2_warrior_details_by_id.png" />
-Удаление война по id.
-views.py:</p>
+<p><img alt="Вывод полной информации о войне (по id), его профессиях и скилах." src="../../images/Lr3/prac-3.2/task2_warrior_details_by_id.png" /></p>
+<p>Удаление война по id.</p>
+<p>views.py:</p>
 <pre><code class="language-python">class WarriorDeleteView(generics.DestroyAPIView):  
     queryset = Warrior.objects.all()  
     serializer_class = WarriorSerializer
@@ -832,9 +834,9 @@ views.py:</p>
     path('warriors/delete/&lt;int:pk&gt;/', WarriorDeleteView.as_view()),
 ]
 </code></pre>
-<p><img alt="Удаление война по id." src="../../images/Lr3/prac-3.2/task2_delete_warrior_by_id.png" />
-Редактирование информации о войне.
-views.py:</p>
+<p><img alt="Удаление война по id." src="../../images/Lr3/prac-3.2/task2_delete_warrior_by_id.png" /></p>
+<p>Редактирование информации о войне.</p>
+<p>views.py:</p>
 <pre><code class="language-python">class WarriorUpdateView(generics.RetrieveUpdateAPIView):  
     queryset = Warrior.objects.all()  
     serializer_class = WarriorSerializer
