@@ -12,6 +12,7 @@ nav:
   - Lr3:
       - prac3-1: Lr3/prac3-1.md
       - prac3-2: Lr3/prac3-2.md
+      - lab-3: Lr3/lab-3.md
 
 theme:
   name: material
