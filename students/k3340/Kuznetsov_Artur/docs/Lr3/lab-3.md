@@ -1028,43 +1028,43 @@
 - Требуется разрешение: Нет
 - Пример запроса:
     
-    ```
-    {
-        "printing_house_id": 1
-    }
-    ```
+  ```
+  {
+      "printing_house_id": 1
+  }
+  ```
     
 - Пример успешного ответа:
     
-    ```
-	{
-	    "printing_house": {
-	        "id": 1,
-	        "name": "Городская типография",
-	        "address": "ул. Ленина, д. 10"
-	    },
-	    "total_newspapers": 1200,
-	    "newspaper_counts": [
-	        {
-	            "newspaper_name": "Аргументы и факты",
-	            "quantity": 200
-	        },
-	        {
-	            "newspaper_name": "Известия",
-	            "quantity": 1000
-	        }
-	    ],
-	    "distributions": [
-	        {
-	            "newspaper_name": "Аргументы и факты",
-	            "post_office_address": "бульвар Зеленый, д. 8",
-	            "quantity": 200
-	        },
-	        {
-	            "newspaper_name": "Известия",
-	            "post_office_address": "ул. Пушкина, д. 15",
-	            "quantity": 450
-	        }
-	    ]
-	}
-    ```
+```
+{
+    "printing_house": {
+        "id": 1,
+        "name": "Городская типография",
+        "address": "ул. Ленина, д. 10"
+    },
+    "total_newspapers": 1200,
+    "newspaper_counts": [
+        {
+            "newspaper_name": "Аргументы и факты",
+            "quantity": 200
+        },
+        {
+            "newspaper_name": "Известия",
+            "quantity": 1000
+        }
+    ],
+    "distributions": [
+        {
+            "newspaper_name": "Аргументы и факты",
+            "post_office_address": "бульвар Зеленый, д. 8",
+            "quantity": 200
+        },
+        {
+            "newspaper_name": "Известия",
+            "post_office_address": "ул. Пушкина, д. 15",
+            "quantity": 450
+        }
+    ]
+}
+```
