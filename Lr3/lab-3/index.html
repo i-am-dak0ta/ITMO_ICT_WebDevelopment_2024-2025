@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -1617,9 +1617,16 @@
 - Куда поступает данная газета, печатающаяся по данному адресу.</p>
 <p>Необходимо предусмотреть возможность выдачи справки об индексе и цене указанной газеты и отчета о работе типографий с почтовыми отделениями города. Отчет должен содержать по каждой типографии следующие сведения: общее количество печатающихся в типографии газет, количество газет каждого наименования, какие газеты и в каком количестве типография отправляет в каждое почтовое отделение.</p>
 <h2 id="_1">Схема базы данных</h2>
-<p><img alt="Схема базы данных" src="../../images/Lr3/database_schema.png" /></p>
+<p><img alt="Схема базы данных" src="../../images/Lr3/Lr3/database_schema.png" /></p>
+<p><img alt="Модель пользователя" src="../../images/Lr3/Lr3/models_user.png" /></p>
+<p><img alt="Модель газеты" src="../../images/Lr3/Lr3/models_newspaper.png" /></p>
+<p><img alt="Модель типографии" src="../../images/Lr3/Lr3/models_printinghouse.png" /></p>
+<p><img alt="Модель почтового отделения" src="../../images/Lr3/Lr3/models_postoffice.png" /></p>
+<p><img alt="Модель тиража" src="../../images/Lr3/Lr3/models_edition.png" /></p>
+<p><img alt="Модель поставки" src="../../images/Lr3/Lr3/models_distribution.png" /></p>
 <h2 id="_2">Эндпоинты</h2>
 <h3 id="1">1. Пользователи</h3>
+<p><img alt="Пользователи" src="../../images/Lr3/Lr3/user.png" /></p>
 <h4 id="11">1.1. Регистрация нового пользователя</h4>
 <ul>
 <li>URL: <code>/auth/users/</code></li>
@@ -1779,6 +1786,7 @@
 <li>Требуется разрешение: Да (только для администратора)</li>
 </ul>
 <h3 id="2">2. Газеты</h3>
+<p><img alt="Газеты" src="../../images/Lr3/Lr3/newspaper.png" /></p>
 <h4 id="21">2.1. Создание новой газеты</h4>
 <ul>
 <li>URL: <code>/newspapers/create/</code></li>
@@ -1899,6 +1907,7 @@
 <li>Требуется разрешение: Да (только для администратора)</li>
 </ul>
 <h3 id="3">3. Типографии</h3>
+<p><img alt="Типографии" src="../../images/Lr3/Lr3/printinghouse.png" /></p>
 <h4 id="31">3.1. Создание новой типографии</h4>
 <ul>
 <li>URL: <code>/printinghouses/create/</code></li>
@@ -2037,6 +2046,7 @@
 <li>Требуется разрешение: Да (только для администратора)</li>
 </ul>
 <h3 id="4">4. Почтовые отделения</h3>
+<p><img alt="Почтовые отделения" src="../../images/Lr3/Lr3/postoffice.png" /></p>
 <h4 id="41">4.1. Создание нового почтового отделения</h4>
 <ul>
 <li>URL: <code>/postoffices/create/</code></li>
@@ -2165,6 +2175,7 @@
 <li>Требуется разрешение: Да (только для администратора)</li>
 </ul>
 <h3 id="5">5. Тиражи</h3>
+<p><img alt="Тиражи" src="../../images/Lr3/Lr3/edition.png" /></p>
 <h4 id="51">5.1. Создание нового тиража</h4>
 <ul>
 <li>URL: <code>/editions/create/</code></li>
@@ -2267,6 +2278,7 @@
 <li>Требуется разрешение: Да (только для администратора)</li>
 </ul>
 <h3 id="6">6. Поставки</h3>
+<p><img alt="Поставки" src="../../images/Lr3/Lr3/distribution.png" /></p>
 <h4 id="61">6.1. Создание новой поставки</h4>
 <ul>
 <li>URL: <code>/distributions/create/</code></li>
@@ -2625,7 +2637,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
       
     
   </body>
