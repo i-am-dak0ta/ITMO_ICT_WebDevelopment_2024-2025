@@ -14,7 +14,6 @@ const edition = ref(null)
 const editDialog = ref(false)
 const deleteDialog = ref(false)
 
-// Только администратор может редактировать и удалять тираж
 const canEditDelete = computed(() => store.user?.role === 'admin')
 
 async function fetchEdition() {
@@ -35,12 +34,10 @@ function openDeleteDialog() {
 }
 
 async function onUpdated() {
-  // После обновления заново получим данные
   await fetchEdition()
 }
 
 async function onDeleted() {
-  // После удаления возвращаемся к списку
   await router.push('/editions')
 }
 
@@ -69,13 +66,11 @@ onMounted(fetchEdition)
       <p v-else>Загрузка данных тиража...</p>
     </v-card>
 
-    <!-- Диалог обновления тиража -->
     <UpdateEditionDialog
       v-model="editDialog"
       :editionData="edition"
       @updated="onUpdated"
     />
-    <!-- Диалог удаления тиража -->
     <DeleteEditionDialog
       v-model="deleteDialog"
       :editionId="edition?.id"

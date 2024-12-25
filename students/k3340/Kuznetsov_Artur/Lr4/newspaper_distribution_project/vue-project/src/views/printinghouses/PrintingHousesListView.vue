@@ -9,7 +9,6 @@ const store = userStore()
 const printingHouses = ref([])
 const createDialog = ref(false)
 
-// Проверка роли: только администратор может добавлять типографии
 const isAdmin = computed(() => store.user?.role === 'admin')
 
 async function fetchPrintingHouses() {
@@ -26,7 +25,6 @@ function openCreateDialog() {
 }
 
 function onPrintingHouseCreated() {
-  // После успешного создания заново загрузим список
   fetchPrintingHouses()
 }
 
@@ -38,7 +36,6 @@ onMounted(fetchPrintingHouses)
     <v-card class="pa-4">
       <v-card-title class="d-flex justify-space-between">
         <span>Список типографий</span>
-        <!-- Кнопка "Добавить" только для администратора -->
         <v-btn color="primary" v-if="isAdmin" @click="openCreateDialog">
           Добавить типографию
         </v-btn>
@@ -61,7 +58,6 @@ onMounted(fetchPrintingHouses)
       </v-card-text>
     </v-card>
 
-    <!-- Диалог для создания типографии -->
     <CreatePrintingHouseDialog
       v-model="createDialog"
       @printinghouse-created="onPrintingHouseCreated"

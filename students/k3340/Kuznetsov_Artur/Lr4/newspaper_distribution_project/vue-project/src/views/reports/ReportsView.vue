@@ -9,10 +9,9 @@ const formData = ref({
 const reportData = ref(null)
 const errorMessage = ref('')
 
-// Функция для получения отчёта
 async function fetchReport() {
-  errorMessage.value = '' // Сброс сообщения об ошибке
-  reportData.value = null // Сброс старых данных отчёта
+  errorMessage.value = ''
+  reportData.value = null
 
   try {
     const response = await axiosClient.post('/reports/printinghouses/', {
@@ -37,10 +36,7 @@ async function fetchReport() {
       <v-card-text>
         <v-form @submit.prevent="fetchReport">
           <v-text-field
-            v-model="formData.printing_house_id"
-            label="ID типографии"
-            type="number"
-            required
+            v-model="formData.printing_house_id" label="ID типографии" type="number" required
           ></v-text-field>
           <v-btn color="primary" @click="fetchReport">Получить отчёт</v-btn>
         </v-form>

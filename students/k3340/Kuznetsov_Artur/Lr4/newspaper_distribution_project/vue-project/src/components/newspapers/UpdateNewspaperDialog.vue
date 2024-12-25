@@ -15,7 +15,6 @@ const emit = defineEmits(['update:modelValue', 'updated'])
 const localOpen = ref(props.modelValue)
 const formData = ref({})
 
-// Синхронизируем локальные данные с входящими пропсами
 watch(
   () => props.newspaperData,
   (newVal) => {
@@ -38,7 +37,6 @@ function closeDialog() {
 async function handleUpdate() {
   try {
     const pk = formData.value.id
-    // Отправляем PUT-запрос
     await axiosClient.put(`/newspapers/update/${pk}/`, {
       name: formData.value.name,
       index: formData.value.index,
@@ -60,26 +58,16 @@ async function handleUpdate() {
       <v-card-text>
         <v-form @submit.prevent="handleUpdate">
           <v-text-field
-            v-model="formData.name"
-            label="Название"
-            required
+            v-model="formData.name" label="Название" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.index"
-            label="Индекс"
-            required
+            v-model="formData.index" label="Индекс" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.price"
-            label="Цена"
-            type="number"
-            required
+            v-model="formData.price" label="Цена" type="number" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.editor"
-            label="ID редактора"
-            type="number"
-            required
+            v-model="formData.editor" label="ID редактора" type="number" required
           ></v-text-field>
         </v-form>
       </v-card-text>

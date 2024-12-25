@@ -9,7 +9,6 @@ const store = userStore()
 const newspapers = ref([])
 const createDialog = ref(false)
 
-// Проверка роли: только администратор может добавлять газеты
 const isAdmin = computed(() => store.user?.role === 'admin')
 
 async function fetchNewspapers() {
@@ -26,7 +25,6 @@ function openCreateDialog() {
 }
 
 function onNewspaperCreated() {
-  // После успешного создания заново загрузим список
   fetchNewspapers()
 }
 
@@ -38,7 +36,6 @@ onMounted(fetchNewspapers)
     <v-card class="pa-4">
       <v-card-title class="d-flex justify-space-between">
         <span>Список газет</span>
-        <!-- Кнопка "Добавить" только для администратора -->
         <v-btn color="primary" v-if="isAdmin" @click="openCreateDialog">
           Добавить газету
         </v-btn>
@@ -61,7 +58,6 @@ onMounted(fetchNewspapers)
       </v-card-text>
     </v-card>
 
-    <!-- Диалог для создания газеты -->
     <CreateNewspaperDialog
       v-model="createDialog"
       @newspaper-created="onNewspaperCreated"

@@ -15,12 +15,10 @@ const editor = ref(null)
 const editDialog = ref(false)
 const deleteDialog = ref(false)
 
-// Редактор или админ имеет право на "Изменить"
 const canEdit = computed(() => {
   return store.user?.role === 'admin' || store.user?.role === 'editor'
 })
 
-// Только админ может "Удалить"
 const canDelete = computed(() => {
   return store.user?.role === 'admin'
 })
@@ -35,7 +33,6 @@ async function fetchNewspaper() {
   }
 }
 
-// Получение данных редактора по ID
 async function fetchEditor(editorId) {
   try {
     if (!editorId) return
@@ -55,12 +52,10 @@ function openDeleteDialog() {
 }
 
 async function onUpdated() {
-  // После обновления заново получим данные
   await fetchNewspaper()
 }
 
 async function onDeleted() {
-  // После удаления возвращаемся к списку
   await router.push('/newspapers')
 }
 
@@ -105,13 +100,11 @@ onMounted(fetchNewspaper)
       </v-card-actions>
     </v-card>
 
-    <!-- Диалог обновления газеты -->
     <UpdateNewspaperDialog
       v-model="editDialog"
       :newspaperData="newspaper"
       @updated="onUpdated"
     />
-    <!-- Диалог удаления газеты -->
     <DeleteNewspaperDialog
       v-model="deleteDialog"
       :newspaperId="newspaper?.id"

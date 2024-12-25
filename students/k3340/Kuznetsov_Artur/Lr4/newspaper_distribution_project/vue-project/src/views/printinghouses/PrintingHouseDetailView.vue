@@ -14,7 +14,6 @@ const printingHouse = ref(null)
 const editDialog = ref(false)
 const deleteDialog = ref(false)
 
-// Только админ может "Редактировать" и "Удалить"
 const canManage = computed(() => store.user?.role === 'admin')
 
 async function fetchPrintingHouse() {
@@ -35,12 +34,10 @@ function openDeleteDialog() {
 }
 
 async function onUpdated() {
-  // После обновления заново получим данные
   await fetchPrintingHouse()
 }
 
 async function onDeleted() {
-  // После удаления возвращаемся к списку
   await router.push('/printinghouses')
 }
 
@@ -79,13 +76,11 @@ onMounted(fetchPrintingHouse)
       </v-card-actions>
     </v-card>
 
-    <!-- Диалог обновления типографии -->
     <UpdatePrintingHouseDialog
       v-model="editDialog"
       :printingHouseData="printingHouse"
       @updated="onUpdated"
     />
-    <!-- Диалог удаления типографии -->
     <DeletePrintingHouseDialog
       v-model="deleteDialog"
       :printingHouseId="printingHouse?.id"

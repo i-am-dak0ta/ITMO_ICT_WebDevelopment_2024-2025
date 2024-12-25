@@ -15,7 +15,6 @@ const emit = defineEmits(['update:modelValue', 'updated'])
 const localOpen = ref(props.modelValue)
 const formData = ref({})
 
-// Синхронизируем данные с пропсами
 watch(
   () => props.printingHouseData,
   (newVal) => {
@@ -58,18 +57,13 @@ async function handleUpdate() {
       <v-card-text>
         <v-form @submit.prevent="handleUpdate">
           <v-text-field
-            v-model="formData.name"
-            label="Название"
-            required
+            v-model="formData.name" label="Название" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.address"
-            label="Адрес"
-            required
+            v-model="formData.address" label="Адрес" required
           ></v-text-field>
           <v-switch
-            v-model="formData.is_active"
-            label="Типография активна? (Нет/Да)"
+            v-model="formData.is_active" label="Типография активна? (Нет/Да)"
           ></v-switch>
         </v-form>
       </v-card-text>

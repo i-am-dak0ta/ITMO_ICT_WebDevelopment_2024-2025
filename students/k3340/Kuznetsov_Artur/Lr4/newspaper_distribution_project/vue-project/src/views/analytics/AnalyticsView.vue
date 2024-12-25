@@ -2,30 +2,25 @@
 import {ref} from 'vue'
 import axiosClient from '@/services/axiosClient'
 
-// Формы для разных запросов
 const newspaperNameForm = ref({name: ''})
 const printingHouseForm = ref({printing_house_id: ''})
 const minPriceForm = ref({min_price: ''})
 const maxQuantityForm = ref({max_quantity: ''})
 const newspaperAndAddressForm = ref({name: '', address: ''})
 
-// Ответы для разных запросов
 const addressesResult = ref([])
 const topEditorResult = ref(null)
 const expensiveNewspapersResult = ref([])
 const lowQuantityResult = ref([])
 const destinationsResult = ref([])
 
-// Сообщения об ошибках
 const errorMessage = ref('')
 
-// Общая функция для обработки ошибок
 function handleError(error) {
   console.error(error)
   errorMessage.value = 'Произошла ошибка. Пожалуйста, проверьте введённые данные.'
 }
 
-// Функции для запросов
 async function fetchAddresses() {
   errorMessage.value = ''
   addressesResult.value = []
@@ -120,7 +115,7 @@ async function fetchDestinations() {
         </v-form>
         <ul v-if="expensiveNewspapersResult.length">
           <li v-for="office in expensiveNewspapersResult" :key="office.post_office_address">
-            Газета: {{ office.newspaper_name }} (Цена: {{ office.newspaper_price }}) → Почтовое отделение:
+            Газета: {{ office.newspaper_name }} → Почтовое отделение:
             {{ office.post_office_address }}
           </li>
         </ul>

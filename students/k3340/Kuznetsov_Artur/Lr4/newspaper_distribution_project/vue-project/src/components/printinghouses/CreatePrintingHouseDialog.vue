@@ -32,18 +32,13 @@ async function handleCreate() {
       <v-card-text>
         <v-form @submit.prevent="handleCreate">
           <v-text-field
-            v-model="formData.name"
-            label="Название"
-            required
+            v-model="formData.name" label="Название" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.address"
-            label="Адрес"
-            required
+            v-model="formData.address" label="Адрес" required
           ></v-text-field>
           <v-switch
-            v-model="formData.is_active"
-            label="Типография активна? (Нет/Да)"
+            v-model="formData.is_active" label="Типография активна? (Нет/Да)"
           ></v-switch>
         </v-form>
       </v-card-text>

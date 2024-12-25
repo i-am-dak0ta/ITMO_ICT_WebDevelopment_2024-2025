@@ -33,26 +33,16 @@ async function handleCreate() {
       <v-card-text>
         <v-form @submit.prevent="handleCreate">
           <v-text-field
-            v-model="formData.name"
-            label="Название"
-            required
+            v-model="formData.name" label="Название" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.index"
-            label="Индекс"
-            required
+            v-model="formData.index" label="Индекс" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.price"
-            label="Цена"
-            type="number"
-            required
+            v-model="formData.price" label="Цена" type="number" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.editor"
-            label="ID редактора"
-            type="number"
-            required
+            v-model="formData.editor" label="ID редактора" type="number" required
           ></v-text-field>
         </v-form>
       </v-card-text>

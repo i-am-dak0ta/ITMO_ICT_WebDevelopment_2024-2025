@@ -9,7 +9,6 @@ const store = userStore()
 const distributions = ref([])
 const createDialog = ref(false)
 
-// Только администратор может добавлять поставки
 const isAdmin = computed(() => store.user?.role === 'admin')
 
 async function fetchDistributions() {
@@ -26,7 +25,6 @@ function openCreateDialog() {
 }
 
 function onDistributionCreated() {
-  // После успешного создания заново загрузим список
   fetchDistributions()
 }
 
@@ -62,7 +60,6 @@ onMounted(fetchDistributions)
       </v-card-text>
     </v-card>
 
-    <!-- Диалог для создания поставки -->
     <CreateDistributionDialog
       v-model="createDialog"
       @distribution-created="onDistributionCreated"

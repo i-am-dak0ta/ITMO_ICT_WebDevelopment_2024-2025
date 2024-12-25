@@ -14,7 +14,6 @@ const distribution = ref(null)
 const editDialog = ref(false)
 const deleteDialog = ref(false)
 
-// Только администратор может редактировать или удалять
 const canEditOrDelete = computed(() => store.user?.role === 'admin')
 
 async function fetchDistribution() {
@@ -68,16 +67,13 @@ onMounted(fetchDistribution)
       </v-card-actions>
     </v-card>
 
-    <!-- Показываем сообщение, если данные ещё загружаются -->
     <p v-else>Загрузка данных поставки...</p>
 
-    <!-- Диалог обновления -->
     <UpdateDistributionDialog
       v-model="editDialog"
       :distributionData="distribution"
       @updated="onUpdated"
     />
-    <!-- Диалог удаления -->
     <DeleteDistributionDialog
       v-model="deleteDialog"
       :distributionId="distribution?.id"

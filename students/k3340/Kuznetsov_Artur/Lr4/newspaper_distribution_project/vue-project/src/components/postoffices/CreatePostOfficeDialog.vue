@@ -31,15 +31,10 @@ async function handleCreate() {
       <v-card-text>
         <v-form @submit.prevent="handleCreate">
           <v-text-field
-            v-model="formData.number"
-            label="Номер"
-            type="number"
-            required
+            v-model="formData.number" label="Номер" type="number" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.address"
-            label="Адрес"
-            required
+            v-model="formData.address" label="Адрес" required
           ></v-text-field>
         </v-form>
       </v-card-text>

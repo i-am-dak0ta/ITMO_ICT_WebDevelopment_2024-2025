@@ -14,7 +14,6 @@ const postOffice = ref(null)
 const editDialog = ref(false)
 const deleteDialog = ref(false)
 
-// Только администратор может редактировать или удалять
 const canEditOrDelete = computed(() => store.user?.role === 'admin')
 
 async function fetchPostOffice() {
@@ -35,12 +34,10 @@ function openDeleteDialog() {
 }
 
 async function onUpdated() {
-  // После обновления заново получим данные
   await fetchPostOffice()
 }
 
 async function onDeleted() {
-  // После удаления возвращаемся к списку
   await router.push('/postoffices')
 }
 
@@ -73,13 +70,11 @@ onMounted(fetchPostOffice)
       </v-card-actions>
     </v-card>
 
-    <!-- Диалог обновления -->
     <UpdatePostOfficeDialog
       v-model="editDialog"
       :postOfficeData="postOffice"
       @updated="onUpdated"
     />
-    <!-- Диалог удаления -->
     <DeletePostOfficeDialog
       v-model="deleteDialog"
       :postOfficeId="postOffice?.id"

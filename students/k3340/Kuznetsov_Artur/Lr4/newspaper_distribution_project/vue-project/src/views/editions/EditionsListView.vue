@@ -9,7 +9,6 @@ const store = userStore()
 const editions = ref([])
 const createDialog = ref(false)
 
-// Проверка роли: только администратор может добавлять тиражи
 const isAdmin = computed(() => store.user?.role === 'admin')
 
 async function fetchEditions() {
@@ -26,7 +25,6 @@ function openCreateDialog() {
 }
 
 function onEditionCreated() {
-  // После успешного создания заново загрузим список
   fetchEditions()
 }
 
@@ -38,7 +36,6 @@ onMounted(fetchEditions)
     <v-card class="pa-4">
       <v-card-title class="d-flex justify-space-between">
         <span>Список тиражей</span>
-        <!-- Кнопка "Добавить" только для администратора -->
         <v-btn color="primary" v-if="isAdmin" @click="openCreateDialog">
           Добавить тираж
         </v-btn>
@@ -63,7 +60,6 @@ onMounted(fetchEditions)
       </v-card-text>
     </v-card>
 
-    <!-- Диалог для создания тиража -->
     <CreateEditionDialog
       v-model="createDialog"
       @edition-created="onEditionCreated"

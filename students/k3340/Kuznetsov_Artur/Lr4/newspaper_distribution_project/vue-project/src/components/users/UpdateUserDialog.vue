@@ -47,35 +47,22 @@ function handleSubmit() {
       <v-card-text>
         <v-form @submit.prevent="handleSubmit">
           <v-text-field
-            v-model="formData.username"
-            label="Имя пользователя"
-            required
+            v-model="formData.username" label="Имя пользователя" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.email"
-            label="Email"
-            required
+            v-model="formData.email" label="Email" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.first_name"
-            label="Имя"
-            required
+            v-model="formData.first_name" label="Имя" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.last_name"
-            label="Фамилия"
-            required
+            v-model="formData.last_name" label="Фамилия" required
           ></v-text-field>
           <v-text-field
-            v-model="formData.patronymic"
-            label="Отчество"
-            required
+            v-model="formData.patronymic" label="Отчество" required
           ></v-text-field>
           <v-select
-            v-model="formData.role"
-            :items="['user', 'editor', 'admin']"
-            label="Роль"
-            required
+            v-model="formData.role" :items="['user', 'editor', 'admin']" label="Роль" required
           ></v-select>
         </v-form>
       </v-card-text>

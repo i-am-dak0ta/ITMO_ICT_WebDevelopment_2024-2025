@@ -9,7 +9,6 @@ const store = userStore()
 const postOffices = ref([])
 const createDialog = ref(false)
 
-// Проверка роли: только администратор может добавлять почтовые отделения
 const isAdmin = computed(() => store.user?.role === 'admin')
 
 async function fetchPostOffices() {
@@ -26,7 +25,6 @@ function openCreateDialog() {
 }
 
 function onPostOfficeCreated() {
-  // После успешного создания заново загрузим список
   fetchPostOffices()
 }
 
@@ -38,7 +36,6 @@ onMounted(fetchPostOffices)
     <v-card class="pa-4">
       <v-card-title class="d-flex justify-space-between">
         <span>Список почтовых отделений</span>
-        <!-- Кнопка "Добавить" только для администратора -->
         <v-btn color="primary" v-if="isAdmin" @click="openCreateDialog">
           Добавить отделение
         </v-btn>
@@ -59,7 +56,6 @@ onMounted(fetchPostOffices)
       </v-card-text>
     </v-card>
 
-    <!-- Диалог для создания почтового отделения -->
     <CreatePostOfficeDialog
       v-model="createDialog"
       @post-office-created="onPostOfficeCreated"
